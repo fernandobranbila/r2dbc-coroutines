@@ -14,12 +14,12 @@ class CustomPublicationQueriesRepositoryImpl(
 ) : CustomPublicationQueriesRepository {
 
     override suspend fun findByTitle(title: String): Flow<Publication> {
-
+/*
         databaseClient.select()
                 .from(Publication::class.java)
                 .matching(where("title").like(title))
                 .fetch()
-                .all()
+                .all()*/
 
         return databaseClient
                 .execute("SELECT * FROM publication WHERE title LIKE :title")
